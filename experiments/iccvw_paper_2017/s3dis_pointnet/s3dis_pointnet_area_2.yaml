@@ -1,0 +1,30 @@
+modus: TRAIN_VAL
+dataset:
+  name: general_dataset
+  num_classes: 13
+  data_path: dataset/stanford_indoor/
+  test_sets: ['Area_2']
+  downsample_prefix: sample_0.03
+  colors: True
+  laser: False
+model:
+  name: pointnet
+batch_generator:
+  name: neighboring_grid_batch_generator
+  params:
+    batch_size: 24
+    num_points: 4096
+    blob_size: 0.5
+    metric: chebyshev
+    augmentation: False
+    radius: 0.5
+    grid_x: 1
+    grid_y: 1
+optimizer:
+  name: exponential_decay_adam
+  params:
+    initial_lr: 0.001
+    decay_step: 300000
+    decay_rate: 0.5
+train:
+  epochs: 61

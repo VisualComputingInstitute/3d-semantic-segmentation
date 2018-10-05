@@ -1,0 +1,32 @@
+modus: TRAIN_VAL
+dataset:
+  name: general_dataset
+  num_classes: 13
+  data_path: dataset/stanford_indoor/
+  test_sets: ['Area_1']
+  downsample_prefix: sample_0.03
+  colors: True
+  laser: False
+model:
+  name: gru_neighbor_model
+  params: None
+batch_generator:
+  name: neighboring_grid_batch_generator
+  params:
+    batch_size: 14
+    num_points: 4096
+    blob_size: 0.5
+    metric: chebyshev
+    augmentation: False
+    grid_x: 2
+    grid_y: 2
+    radius: 0.5
+optimizer:
+  name: exponential_decay_adam
+  params:
+    initial_lr: 0.001
+    decay_step: 300000
+    decay_rate: 0.5
+    gradient_clipping: 15
+train:
+  epochs: 61

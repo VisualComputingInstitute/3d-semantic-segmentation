@@ -1,0 +1,29 @@
+modus: TRAIN_VAL
+dataset:
+  name: general_dataset
+  num_classes: 13
+  data_path: dataset/stanford_indoor/
+  test_sets: ['Area_4']
+  downsample_prefix: sample_0.03
+  colors: True
+  laser: False
+model:
+  name: multi_scale_cu_model
+batch_generator:
+  name: multi_scale_batch_generator
+  params:
+    batch_size: 24
+    num_points: 4096
+    blob_size: 0.5
+    metric: chebyshev
+    augmentation: False
+    root_cache_path: cache
+    radii: [0.25, 0.5, 1.0]
+optimizer:
+  name: exponential_decay_adam
+  params:
+    initial_lr: 0.001
+    decay_step: 300000
+    decay_rate: 0.5
+train:
+  epochs: 61

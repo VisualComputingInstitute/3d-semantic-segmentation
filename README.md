@@ -62,6 +62,7 @@ The aligned version 1.2 is used for our results.
 #### Producing numpy files from the original dataset
 Our pipeline cannot handle the original file type of s3dis. So, we need to convert it to npy files.
 Note that Area_5/hallway_6 has to be fixed manually due to format inconsistencies.
+The following script has to be run from the `tools` directory:
 
     python prepare_s3dis.py --input_dir path/to/dataset --output_dir path/to/output
 

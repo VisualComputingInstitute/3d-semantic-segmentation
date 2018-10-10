@@ -63,7 +63,7 @@ The aligned version 1.2 is used for our results.
 Our pipeline cannot handle the original file type of s3dis. So, we need to convert it to npy files.
 Note that Area_5/hallway_6 has to be fixed manually due to format inconsistencies.
 
-    python tools/prepare_s3dis.py --input_dir path/to/dataset --output_dir path/to/output
+    python prepare_s3dis.py --input_dir path/to/dataset --output_dir path/to/output
 
 #### Downsampling for training
 Before training, we downsampled the pointclouds.

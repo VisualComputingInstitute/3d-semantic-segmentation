@@ -14,10 +14,9 @@ batch_generator:
   params:
     batch_size: 24
     num_points: 4096
-    blob_size: 0.5
+    grid_spacing: 0.5
     metric: chebyshev
     augmentation: False
-    root_cache_path: cache
     radii: [0.25, 0.5, 1.0]
 optimizer:
   name: exponential_decay_adam

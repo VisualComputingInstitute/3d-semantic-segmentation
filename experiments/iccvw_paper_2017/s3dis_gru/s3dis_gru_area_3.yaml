@@ -15,7 +15,7 @@ batch_generator:
   params:
     batch_size: 14
     num_points: 4096
-    blob_size: 0.5
+    grid_spacing: 0.5
     metric: chebyshev
     augmentation: False
     grid_x: 2

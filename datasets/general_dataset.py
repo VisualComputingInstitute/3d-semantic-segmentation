@@ -191,6 +191,15 @@ class GeneralDataset:
         self._train_pc_idx = sorted([names.index(name) for name in train_pc_names])
         self._test_pc_idx = sorted([names.index(name) for name in test_pc_names])
 
+        # short sanity check to ensure that data could be read in
+        if len(data_training_test) == 0 or len(names) == 0:
+            # error
+            raise ValueError(f"Dataset could not be found under {self.data_path}")
+        else:
+            if (not is_train) and len(full_sized_test_data) == 0:
+                # error
+                raise ValueError(f"Dataset could not be found in {self.data_path}")
+
         return data_training_test, names, full_sized_test_data
 
 
